@@ -3071,3 +3071,552 @@ hold on
 plot (x,y,'o')
 hold off
 diary off
+-----------------------------------------JAUNAHUINA--------------------------------------------------------
+
+	Classroom License -- for classroom instructional use only.
+
+>> mkdir lab2
+>> cs lab2
+Undefined function or variable 'cs'.
+ 
+>> cd lab2
+>> ls
+>> pwd
+
+ans =
+
+    '/home/user/lab2'
+
+>> syms a11 a12 a21 a22
+>> A = [a11 a12; a21 a22]
+ 
+A =
+ 
+[ a11, a12]
+[ a21, a22]
+ 
+>> syms b11 b12 b21 b22
+>> B = [b11 b12; b21 b22]
+ 
+B =
+ 
+[ b11, b12]
+[ b21, b22]
+ 
+>> A*B
+ 
+ans =
+ 
+[ a11*b11 + a12*b21, a11*b12 + a12*b22]
+[ a21*b11 + a22*b21, a21*b12 + a22*b22]
+ 
+>> C = A*B
+ 
+C =
+ 
+[ a11*b11 + a12*b21, a11*b12 + a12*b22]
+[ a21*b11 + a22*b21, a21*b12 + a22*b22]
+ 
+>> D = A.*B
+ 
+D =
+ 
+[ a11*b11, a12*b12]
+[ a21*b21, a22*b22]
+ 
+>> %% Simbolisko mainigo definesana
+>> % 1. veids 
+>> x = sym ('x');
+>> y = sym ('y')
+ 
+y =
+ 
+y
+ 
+>> sqrt(x^2)
+ 
+ans =
+ 
+(x^2)^(1/2)
+ 
+>> %% pienemsim ka x ir lielaki par 0
+>> x= sym ('x','positive')
+ 
+x =
+ 
+x
+ 
+>> sqrt(x^2)
+ 
+ans =
+ 
+x
+ 
+>> % 2.veids
+>> syms a11 a12 a21 a22
+>> A = [a11 a12; a21 a22]
+ 
+A =
+ 
+[ a11, a12]
+[ a21, a22]
+ 
+>> A' 
+ 
+ans =
+ 
+[ conj(a11), conj(a21)]
+[ conj(a12), conj(a22)]
+ 
+>> %% pienemsim ka a11 a12 a21 a22 ir reali sk. nav kompleksi
+>> syms a11 a12 a21 a22 real
+>> A'
+ 
+ans =
+ 
+[ a11, a21]
+[ a12, a22]
+ 
+>> %3.veids
+>> A = sym('a',[3 4]3)
+ A = sym('a',[3 4]3)
+                  ↑
+Error: Invalid expression. Check for missing multiplication operator, missing or unbalanced delimiters, or
+other syntax error. To construct matrices, use brackets instead of parentheses.
+ 
+>> A = sym('a',[3 4])
+ 
+A =
+ 
+[ a1_1, a1_2, a1_3, a1_4]
+[ a2_1, a2_2, a2_3, a2_4]
+[ a3_1, a3_2, a3_3, a3_4]
+ 
+>> %% atvasinasana
+>> syms x
+>> diff(x^2)
+ 
+ans =
+ 
+2*x
+ 
+>> %%parcialie atvasinajumi
+>> syms x y
+>> z = x^5+y^4;
+>> diff(z,x)
+ 
+ans =
+ 
+5*x^4
+ 
+>> diff(z,y)
+ 
+ans =
+ 
+4*y^3
+ 
+>> %% Integresana
+>> %%nenoteiktais integralis
+>> int(x^2,x)
+ 
+ans =
+ 
+x^3/3
+ 
+>> syms a (x^2,a)
+Error using symfun.parseString (line 50)
+Invalid variable name.
+
+Error in syms (line 225)
+        [name, vars] = symfun.parseString(x);
+ 
+>> syms a x (x^2,a)
+Error using symfun.parseString (line 50)
+Invalid variable name.
+
+Error in syms (line 225)
+        [name, vars] = symfun.parseString(x);
+ 
+>> syms a x
+>> int(x^2,a)
+ 
+ans =
+ 
+a*x^2
+ 
+>> %% Noteiktais integralis
+>> syms x
+>> int(x^2,x,-3,3)
+ 
+ans =
+ 
+18
+ 
+>> %% Robežas
+>> syms x
+>> limit(1/(x-1),x,1,'left')
+ 
+ans =
+ 
+-Inf
+ 
+>> limit(1/(x-1),x,1,'right')
+ 
+ans =
+ 
+Inf
+ 
+>> %%viendaujumu risinasana
+>> %%au=o
+>> solve(x^2-5*x+6==0,x)
+ 
+ans =
+ 
+ 2
+ 3
+ 
+>> %vienadojumu sistemas
+>> syms x y z
+>> atb = solve(x+y+z==21,x+y-z==1,x-y+z==9)
+
+atb = 
+
+  struct with fields:
+
+    x: [1×1 sym]
+    y: [1×1 sym]
+    z: [1×1 sym]
+
+>> atb.x
+ 
+ans =
+ 
+5
+ 
+>> atb.y
+ 
+ans =
+ 
+6
+ 
+>> atb.z
+ 
+ans =
+ 
+10
+ 
+>> %%izeiksmju vienkarsosana
+>> syms x
+>> y = (X-1)*(x-2)/((X-3)*(x-4)^2)
+Undefined function or variable 'X'.
+ 
+Did you mean:
+>> y = (x-1)*(x-2)/((x-3)*(x-4)^2)
+ 
+y =
+ 
+((x - 1)*(x - 2))/((x - 3)*(x - 4)^2)
+ 
+>> yd= diff(y)
+ 
+yd =
+ 
+(x - 1)/((x - 3)*(x - 4)^2) + (x - 2)/((x - 3)*(x - 4)^2) - (2*(x - 1)*(x - 2))/((x - 3)*(x - 4)^3) - ((x - 1)*(x - 2))/((x - 3)^2*(x - 4)^2)
+ 
+>> simplify(yd)
+ 
+ans =
+ 
+(- x^3 + 2*x^2 + 9*x - 16)/((x - 3)^2*(x - 4)^3)
+ 
+>> %%izteiksmju vienkarsosana 2
+>> syms x
+>> y = (x-2) * (x - 3)
+ 
+y =
+ 
+(x - 2)*(x - 3)
+ 
+>> y2 = expand(y)
+ 
+y2 =
+ 
+x^2 - 5*x + 6
+ 
+>> %%izteiksmju vienkarsosana 3
+>> factor(y2)
+ 
+ans =
+ 
+[ x - 2, x - 3]
+ 
+>> %%izteiksmju vienkarsosana 4
+>> horner(y)
+ 
+ans =
+ 
+x*(x - 5) + 6
+ 
+>> %% simbolsikas konstantes
+>> pi
+
+ans =
+
+    3.1416
+
+>> format long
+>> pi
+
+ans =
+
+   3.141592653589793
+
+>> a = vpa('pi')
+ 
+a =
+ 
+3.1415926535897932384626433832795
+ 
+>> a = vpa('2')
+ 
+a =
+ 
+2.0
+ 
+>> a = vpa('pi')
+ 
+a =
+ 
+3.1415926535897932384626433832795
+ 
+>> b = vpa('2')
+ 
+b =
+ 
+2.0
+ 
+>> c = vpa(2)
+ 
+c =
+ 
+2.0
+ 
+>> a=b=c
+ a=b=c
+    ↑
+Error: Incorrect use of '=' operator. To assign a value to a variable, use '='. To compare values for
+equality, use '=='.
+ 
+Did you mean:
+>> a+b+c
+ 
+ans =
+ 
+7.1415926535897932384626433832795
+ 
+>> a = vpa(pi)
+ 
+a =
+ 
+3.1415926535897932384626433832795
+ 
+>> digits(100)
+>> a = vpa(pi)
+ 
+a =
+ 
+3.141592653589793238462643383279502884197169399375105820974944592307816406286208998628034825342117068
+ 
+>> a = vpa(exp(1))
+ 
+a =
+ 
+2.71828182845904553488480814849026501178741455078125
+ 
+>> digits(10)
+>> sqrt(a)
+ 
+ans =
+ 
+1.648721271
+ 
+>> class(a)
+
+ans =
+
+    'sym'
+
+>> class(ans)
+
+ans =
+
+    'char'
+
+>> class(b)
+
+ans =
+
+    'sym'
+
+>> %% izteiksmju "skaista atēlošana"
+>> y = (x-1)*(x-2)/((x-3)*(x-4)^2)
+ 
+y =
+ 
+((x - 1)*(x - 2))/((x - 3)*(x - 4)^2)
+ 
+>> pretty(y)
+ (x - 1) (x - 2)
+----------------
+               2
+(x - 3) (x - 4)
+
+>> %% izteiksmju "skaista atēlošana" 2
+>> syms x
+>> y = sqrt()x-1/(x-4)^5;
+ y = sqrt()x-1/(x-4)^5;
+           ↑
+Error: Invalid expression. Check for missing multiplication operator, missing or unbalanced delimiters, or
+other syntax error. To construct matrices, use brackets instead of parentheses.
+ 
+>> y = sqrt(x-1)/(x-4)^5;
+>> yltx = latex(y)
+
+yltx =
+
+    '\frac{\sqrt{x-1}}{{\left(x-4\right)}^5}'
+
+>> yltx2 = ['$',yltx,'$']
+
+yltx2 =
+
+    '$\frac{\sqrt{x-1}}{{\left(x-4\right)}^5}$'
+
+>> text(0,0.5,yltx2,'Interpreter','latex','fontsize',32,'BackgroundColor','white')
+>> text(1,2.5,yltx2,'Interpreter','latex','fontsize',32,'BackgroundColor','white')
+>> text(1,2.5,yltx2,'Interpreter','latex','fontsize',32,'BackgroundColor','white')
+>> text(0,0.5,yltx2,'Interpreter','latex','fontsize',32,'BackgroundColor','white')
+>> text(2,0.5,yltx2,'Interpreter','latex','fontsize',32,'BackgroundColor','white')
+>> text(2,0.5,yltx2,'Interpreter','latex','fontsize',32,'BackgroundColor','white')
+>> text(0,0.5,yltx2,'Interpreter','latex','fontsize',32,'BackgroundColor','white')
+>> text(0,0.5,yltx2,'Interpreter','latex','fontsize',32,'BackgroundColor','white','visible','off')
+>> text(0,0.5,yltx2,'Interpreter','latex','fontsize',32,'BackgroundColor','white','visible','off')
+>> text(0,0.5,yltx2,'Interpreter','latex','fontsize',32,'BackgroundColor','white')
+>> %%rezultātu grafiskaā atelosana
+>> %% aprekinu veiksana
+>> syms x
+>> y = x^2;
+>> ezplot(y)
+>> %%aprekinu veiksana
+>> %%rezultātu grafiskā atēlosana ar plot
+>> %%(2labratorijas darba 2 uzdevums)
+>> %%1.
+>> %%pienemsim ka ir dota funkcija kurai ir jaatrod atvasinājums un funkcija ta bus jauzīmē uz grafika izmantojot plot uzdotajā intervālā 
+>> %% ar latexa generātoru bus jaizveido anotācija "legenda"-a
+>> syms x)
+Error using syms (line 222)
+Invalid variable name.
+ 
+>> syms x
+>> y = x^3+2x^2-5x+4;
+ y = x^3+2x^2-5x+4;
+          ↑
+Error: Invalid expression. Check for missing multiplication operator, missing or unbalanced delimiters, or
+other syntax error. To construct matrices, use brackets instead of parentheses.
+ 
+Did you mean:
+>> y = x^3 + 2*x^2 - 5*x + 4;
+>> %2.
+>> yd = diff(y);
+>> % atradām atvasinājumu
+>> % 3.
+>> %izteiksmes vektorizācija
+>> % () (punktinu ieliksana)
+>> tv = vecotrize(y)
+Undefined function or variable 'vecotrize'.
+ 
+Did you mean:
+>> tv = vectorize(y)
+
+tv =
+
+    '2.*x.^2 - 5.*x + x.^3 + 4'
+
+>> yv = vectorize(y)
+
+yv =
+
+    '2.*x.^2 - 5.*x + x.^3 + 4'
+
+>> ydv = vectorize ()yd
+ ydv = vectorize ()yd
+                   ↑
+Error: Invalid expression. Check for missing multiplication operator, missing or unbalanced delimiters, or
+other syntax error. To construct matrices, use brackets instead of parentheses.
+ 
+Did you mean:
+>> ydv = vectorize ()*yd
+Not enough input arguments.
+
+Error in vectorize (line 17)
+v = char(s);
+ 
+>> ydv = vectorize(yd)
+
+ydv =
+
+    '4.*x + 3.*x.^2 - 5'
+
+>> %%   4.
+>> %%definēsim x kā skaitļu vektoru
+>> x = -2:0.01:2;
+>> %interpretācija
+>> yn = eval(yv);
+>> ydn = eval(ydv);
+>> %%tas bija 5. solis interpretācija
+>> %%citiem vardiem , paskatās kāds ir x un ieliek to
+>> %% 6.
+>> %% zīmēsin ar plot
+>> plot (x,yn,x,ydn)
+>> plot(x,yn,x,ydn)
+>> %%7. anotēsim grafiku
+>> yltx = latex(y):
+ yltx = latex(y):
+                 ↑
+Error: Invalid expression. Check for missing or extra characters.
+ 
+>> yltx = latex(y);
+>> ydltxt = latex(yd);
+>> h=legend(['$',yltx,'$'],['$',ydltx,'$']),...
+set(h,'interpreter','latex')
+Undefined function or variable 'ydltx'.
+ 
+>> h=legend(['$',yltx,'$'],['$',ydltxt,'$']),...
+set(h,'interpreter','latex')
+
+h = 
+
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+$x^3+2\,x^2-5\,x+4$
+ 
+> In defaulterrorcallback (line 12)
+  In matlab.graphics.illustration.Legend/get.String
+  In matlab.graphics.illustration.Legend/getDescriptiveLabelForDisplay 
+Warning: Error updating Legend.
+
+ String scalar or character vector must have valid interpreter syntax:
+$3\,x^2+4\,x-5$
+ 
+> In defaulterrorcallback (line 12)
+  In matlab.graphics.illustration.Legend/get.String
+  In matlab.graphics.illustration.Legend/getDescriptiveLabelForDisplay 
+  Legend ($x^3+2\,x^2-5\,x+4$, $3\,x^2+4\,x-5$) with properties:
+
+         String: {'$x^3+2\,x^2-5\,x+4$'  '$3\,x^2+4\,x-5$'}
+       Location: 'northeast'
+    Orientation: 'vertical'
+       FontSize: 9
+       Position: [0.552380959618659 0.818650795779531 0.333928564190865 0.082142855014120]
+          Units: 'normalized'
