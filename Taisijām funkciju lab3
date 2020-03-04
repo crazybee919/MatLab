@@ -1,27 +1,44 @@
+%%labratorijas darbs 3
+%%Matīss Mutjanko
+%%Darba uzdevumi:Uztaisīt funkciju no zīmējuma un palaist to.
+
+function y = lab3(t)
+if nargin == 0
+    t = 0:0.01:6;
+end
 A0=0;
 A=1.5;
 T=(2-0)/2;
 f=1/T;
-t_sin = 0:0.01:1.5;
+%t_sin = 0:0.01:1.5;
+t_sinf = (t>=0)&(t<1.5); t_sin = t(t_sinf);
 y_sin = A0+A*sin(2*pi*f*(t_sin));
-plot(t_sin,y_sin);
+%plot(t_sin,y_sin);
 hold on
-t_zeros = 1.5:0.01:3;
+%t_zeros = 1.5:0.01:3;
+t_zerosf = (t>=1.5)&(t<3); t_zeros = t(t_zerosf);
 y_zeros = zeros(size(t_zeros));
-plot(t_zeros,y_zeros);
-t_const = 3:0.01:4.5;
+%plot(t_zeros,y_zeros);
+%t_const = 3:0.01:4.5;
+t_constf = (t>=3)&(t<4.5); t_const = t(t_constf);
 y_const = zeros (size(t_const))+1.5;
-plot(t_const,y_const);
-t_noise =4.5:0.01:5.5;
+%plot(t_const,y_const);
+%t_noise =4.5:0.01:5.5;
+t_noisef = (t>=4.5)&(t<5.5); t_noise = t(t_noisef);
 y_noise = 1.5*rand(size(t_noise))-0.75;
-plot(t_noise,y_noise);
+%plot(t_noise,y_noise);
 k= (0-(-0.25))/(5.5-6);
-t_saw=5.5:0.01:6;
+%t_saw=5.5:0.01:6;
+t_sawf = (t>=5.5)&(t<6); t_saw = t(t_sawf);
 y_saw = k*(t_saw-5.5);
-plot(t_saw,y_saw);
+%plot(t_saw,y_saw);
 t=[t_sin,t_zeros,t_const,t_noise,t_saw];
 y=[y_sin,y_zeros,y_const,y_noise,y_saw];
-plot(t,y);
+if nargout == 0
+    plot(t,y);
+    y = [];
+end
+%%Secinājumi:Darbs nebija tik sarežģīts ja pievērš uzmanību nodarbībās.
 ---------------------------------------------------------------------------------------------------------------------------------
 
 	Classroom License -- for classroom instructional use only.
