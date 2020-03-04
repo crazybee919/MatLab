@@ -1,4 +1,3 @@
-%%labratorijas darbs 3
 A0=0;
 A=1.5;
 T=(2-0)/2;
@@ -8,11 +7,11 @@ y_sin = A0+A*sin(2*pi*f*(t_sin));
 plot(t_sin,y_sin);
 hold on
 t_zeros = 1.5:0.01:3;
-y_zeros = zeros(size(t_const));
-plot(t_const,y_const);
+y_zeros = zeros(size(t_zeros));
+plot(t_zeros,y_zeros);
 t_const = 3:0.01:4.5;
-y_const = zeros (size(t_const2))+1.5;
-plot(t_const2,y_const2);
+y_const = zeros (size(t_const))+1.5;
+plot(t_const,y_const);
 t_noise =4.5:0.01:5.5;
 y_noise = 1.5*rand(size(t_noise))-0.75;
 plot(t_noise,y_noise);
