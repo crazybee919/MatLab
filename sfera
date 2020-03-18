@@ -1,0 +1,22 @@
+%%Sferas gredzena izgrisana
+%%Matiss Mutjanko REBMO2
+R=1;
+x=-1:0.01:1;
+y=-1:0.01:1;
+z=sqrt(R^2-(x.^2+y.^2));
+[X,Y]=meshgrid(x,y);
+z=sqrt(R^2-(X.^2+Y.^2));
+ind=real(z)==0;
+Z(ind)=NaN;
+mesh(X,Y,Z);
+Z2=-sqrt(R^2-(X.^2+Y.^2));
+ind2=real(Z2)==0;
+Z2(ind2)=NaN;
+mesh([X,X],[Y,Y],[Z,Z2])
+%%sfera ir gatava tagad izgriezisim gredzenu.
+ind_gredz=(Z>0.5)&(Z<0.7);
+Z_gredz=Z;
+Z_gredz(ind_gredz)=NaN;
+figure, mesh([X,X],[Y,Y],[Z_gredz,Z2]),zlim([-1,1])
+%secinajumi:
+%Iemacijos stradat ar kompleksajiem skaitliem matlab.
