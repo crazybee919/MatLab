@@ -1,0 +1,444 @@
+>> %%nelinearas shemas simulacija
+>> edit
+>> funx(0)
+'funx' is not found in the current folder or on the MATLAB path,
+but exists in:
+    C:\Users\Dzintra\Desktop\matīss\Matlab.Darbi
+
+Change the MATLAB current folder or add its folder to the MATLAB
+path.
+ 
+>> funx(0)
+>> 
+>> funx(0)
+>> %% mes atrisinasim nelinearo vienadojumu izmantojot
+>> %minejumu metodi
+>> funx(-1)
+>> funx(0)
+>> funx(0)
+>> funx(0)
+>> clear
+>> funx(0)
+>> funx(0)
+>> funx(0)
+>> funx(0)
+
+ans =
+
+    1.7183
+
+>> funx(3)
+
+ans =
+
+   -3.8647
+
+>> funx(6)
+
+ans =
+
+   -6.9933
+
+>> funx(1)
+
+ans =
+
+    -1
+
+>> funx(2)
+
+ans =
+
+   -2.6321
+
+>> funx(0.001)
+
+ans =
+
+    1.7146
+
+>> funx(0.5)
+
+ans =
+
+    0.1487
+
+>> funx(0.4)
+
+ans =
+
+    0.4221
+
+>> funx(0.6)
+
+ans =
+
+   -0.1082
+
+>> funx(0.7)
+
+ans =
+
+   -0.3501
+
+>> funx(0.6.5)
+ funx(0.6.5)
+         ↑
+Error: Invalid expression. Check for missing multiplication
+operator, missing or unbalanced delimiters, or other syntax
+error. To construct matrices, use brackets instead of
+parentheses.
+ 
+>> funx(0.65)
+
+ans =
+
+   -0.2309
+
+>> funx(0.55)
+
+ans =
+
+    0.0183
+
+>> funx(0.54)
+
+ans =
+
+    0.0441
+
+>> funx(0.56)
+
+ans =
+
+   -0.0073
+
+>> funx(0.57)
+
+ans =
+
+   -0.0327
+
+>> funx(0.56)
+
+ans =
+
+   -0.0073
+
+>> funx(0.5567576)
+
+ans =
+
+   9.9229e-04
+
+>> %% nutona metode
+>> x = -2:0.01:5;
+>> y = funx(x);
+>> plot(x,y)
+>> grid
+>> %f(x)-> funx
+>> %f'(x)-> funx atvasinajums
+>> syms i0 a E UR R
+>> diff(i0*(exp(a*(E-UR))-1)-UR/R,UR)
+ 
+ans =
+ 
+- 1/R - a*i0*exp(a*(E - UR))
+ 
+>> edit
+>> x0=0;
+>> %pirmais saknes tuvinajums
+>> delta = funx(x0)/fund(x0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> delta = funx(x0)/fund(x0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> x0 = x0-delta
+Undefined function or variable 'delta'.
+ 
+>> delta = funx(x0)/fund(x0);
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> R = 1;
+>> delta = funx(x0)/fund(x0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> delta = funx(x0)/fund(x0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> delta = funx(x0)/fund(x0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> delta = funx(x0)/fund(x0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> delta = funx(x0)/fund(x0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> delta = funx(x0)/fund(x0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> delta = funx(x0)/fund(x0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> R = 1;
+>> R = 1;
+>> delta = funx(x0)/fund(x0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> delta = funx(x0)/fund(x0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> delta = funx(x0)/fund(x0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> delta = funx(x0)/fund(x0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> delta = funx(x0)/fund(x0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> delta = funx(x0)/fund(x0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> delta = funx(x0)/fund(x0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> delta = funx(x0)/fund(x0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> fund(0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> clear
+>> clear
+>> x0 = 0;
+>> fund(0)
+Undefined function or variable 'R'.
+
+Error in fund (line 2)
+fx = - 1/R - a*i0*exp(a*(E - UR));
+ 
+>> delta = funx(x0)/fund(x0)
+2   R=1; i0=1; a=1; E=1;
+K>> delta = funx(x0)/fund(x0)
+Undefined function or variable 'x0'.
+ 
+Did you mean:
+K>> 
+
+delta =
+
+   -0.4621
+
+>> format long
+>> delta = funx(x0)/fund(x0)
+
+delta =
+
+  -0.462117157260010
+
+>> x0 = X0-delta
+Undefined function or variable 'X0'.
+ 
+Did you mean:
+>> x0 = x0-delta
+
+x0 =
+
+   0.462117157260010
+
+>> funx(0)
+
+ans =
+
+   1.718281828459046
+
+>> delta = funx(x0)/fund(x0)
+
+delta =
+
+  -0.092266094213445
+
+>> x0 = x0-delta
+
+x0 =
+
+   0.554383251473455
+
+>> funx(0)
+
+ans =
+
+   1.718281828459046
+
+>> x0 = x0-delta;
+>> delta = funx(x0)/fund(x0);
+>> x0 = x0-delta;
+>> edit
+>> %sagalbasim ar newmet5.m
+>> newmet5
+
+ans =
+
+     0
+
+>> y = newmet5
+
+y =
+
+     0
+
+>> y = newmet5
+2   epsilon = 1e-3;
+K>> %parvietosties var f10
+3   x0 = 0;
+4   delta = funx(x0)/fund(x0);
+5   while(delta>epsilon)
+End of function newmet5.
+K>> delta
+
+delta =
+
+  -0.462117157260010
+
+K>> epsilon
+
+epsilon =
+
+     1.000000000000000e-03
+
+
+y =
+
+     0
+
+>> %F5
+>> y = newmet5
+2   epsilon = 1e-3;
+3   x0 = 0;
+4   delta = funx(x0)/fund(x0);
+5   while(abs(delta)>epsilon)
+6       delta = funx(x0)/fund(x0);
+7       x0 = x0-delta;
+8   end
+6       delta = funx(x0)/fund(x0);
+7       x0 = x0-delta;
+8   end
+6       delta = funx(x0)/fund(x0);
+7       x0 = x0-delta;
+8   end
+6       delta = funx(x0)/fund(x0);
+7       x0 = x0-delta;
+8   end
+End of function newmet5.
+
+y =
+
+   0.557145598995967
+
+>> edit
+>> lab5
+10      URm = [URm,UR]
+K>> URm
+
+URm =
+
+     []
+
+
+URm =
+
+     0
+
+10      URm = [URm,UR]
+K>> %F5
+K>> format short
+
+URm =
+
+     0     0
+
+10      URm = [URm,UR]
+
+URm =
+
+     0     0     0
+
+10      URm = [URm,UR]
+K>> dbquit
+>> lab5
+3   fx = - 1/R - a*i0*exp(a*(E - UR));
+>> lab5
+lab5
+Operation terminated by user during newmet5 (line 6)
+
+
+In lab5 (line 9)
+    UR = newmet5;
+ 
+>> lab5
+Operation terminated by user
+>> lab5
+>> delete newmet5.m
+>> delete funx.m
+>> delete fund.m
+>> lab5
