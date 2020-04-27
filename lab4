@@ -18,11 +18,11 @@ R8 = 8;
 %%-R6*Ik1+(R6+R5+R7)*Ik2-R7*Ik3=E2+R7*J3
 %%0*Ik1-R7*Ik2+(R1+R7+R4+R3+R2)*Ik3=-E1-(R7+R4+R3)*J3
 E = [E1;
-    E2+R7*J3;
-    -E1-(R7+R4+R3)*J3];
+ E2+R7*J3;
+ -E1-(R7+R4+R3)*J3];
 R = [R8+R6 -R6 0;
-    -R6 R6+R5+R7 -R7;
-    0 -R7 R7+R4+R3+R2+R1];
+ -R6 R6+R5+R7 -R7;
+ 0 -R7 R7+R4+R3+R2+R1];
 Ik = R\E;
 %%atrast un uzzimet:
 %UR3-?
@@ -31,24 +31,25 @@ IR3 = J3+Ik(3,:);
 UR3 = IR3*R3;
 PR3 = UR3.*IR3;
 plot(t,PR3);
-hold on 
+hold on
 xlabel('t,s');
 ylabel('Jauda,W');
 legend('Jauda');
 plot(t,UR3);
-hold on 
+hold on
 xlabel('t,s');
 ylabel('Spreigums,v');
 legend('Spreigums','Jauda');
 %%KSL Pirmajam konturam.
 IR8 = Ik(1,:);
+IR6 = Ik(:,1)-Ik(:,2); %<-------- izsaku IR6 ar konturstravam
 UR8 = IR8*R8;
-UR6 = E1-UR8;
-KSL1 = UR8+UR6-E1;%% jabut 0
+UR6 = IR6*R6
+KSL1 = UR8+UR6-E1;%% jabut 0 %<--------Bet nesanak 0
 figure(2),plot(t,KSL1);
 hold on
 xlabel('t,s');
 ylabel('Spreigums,V');
-%%Secinajumi:
+%% Secinajumi:
 %Iepazinos ar Matlab vienadojumu sitemam un padzilinatakas zinasanas
 %ieguvu par matricam.
